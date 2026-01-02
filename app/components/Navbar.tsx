@@ -7,25 +7,50 @@ import Link from "next/link";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleOpenLink = () => {
+    const url = "https://wa.me/5511935057114";
+
+    // Lógica opcional aqui (ex: Analytics)
+    console.log("Abrindo link externo...");
+
+    // window.open(url, target)
+    // '_blank' abre em uma nova aba.
+    // '_self' abriria na mesma aba.
+    if (typeof window !== "undefined") {
+       window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <header className="bg-[#0A0E29] border-b border-[#8A2BE2]/20 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-whitee">Fluxia</div>
-          
+          <div className="w-1/3">
+            <img
+              src="/logo-white.png"
+              alt="Tecnologia e Estratégia transformando conversas em Vendas"
+              // width={1200}
+              // height={675}
+              className="w-full h-auto"
+            />
+          </div>
+
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="w-1/3 hidden md:flex items-center space-x-8">
             <Link href="#solutions" className="text-white hover:text-[#00FFFF] transition-colors">Soluções</Link>
             <Link href="#how-it-works" className="text-white hover:text-[#00FFFF] transition-colors">Como funciona</Link>
           </nav>
-          
-          <button className="hidden md:block bg-gradient-to-r from-[#FF00FF] to-[#00FFFF] text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:shadow-[#FF00FF]/25 transition-all neon-glow">
+
+          <button
+            type="button"
+            onClick={handleOpenLink}
+            className="w-1/3 hidden md:block bg-gradient-to-r from-[#FF00FF] to-[#00FFFF] text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:shadow-[#FF00FF]/25 transition-all neon-glow">
             Fale com um especialista
           </button>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-white" 
+          <button
+            className="flex justify-end w-1/3 md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
