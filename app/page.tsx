@@ -412,7 +412,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-[#8A2BE2]/20 mt-8 pt-8 text-center">
-            <p className="text-[#D3D3D3] text-sm">© 2025 Fluxia Sales. All rights reserved.</p>
+            <p className="text-[#D3D3D3] text-sm">© 2025 Fluxia Sales | CNPJ 47.638.763/0001-26. All rights reserved.</p>
           </div>
         </div>
       </footer>
